@@ -8,7 +8,7 @@ var defaultArgs = {
   // 'follow-links': '',
   'force': false,
   'watch': false,
-  'project': true,
+  'project': false,
   'algorithm': 'square',
   'ordering': 'maxside',
   'css': '',
