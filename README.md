@@ -6,7 +6,7 @@
 
 `gulp-glue` requires the **glue** and **jpeg**, 
 
-Please refer the [Lnstalling Glue](http://glue.readthedocs.org/en/latest/installation.html)
+Please refer the [Installing Glue](http://glue.readthedocs.org/en/latest/installation.html)
 
 ## Usage
 
