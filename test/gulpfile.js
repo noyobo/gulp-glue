@@ -2,13 +2,13 @@
 
 var gulp = require('gulp');
 
-var glue = require('./');
+var glue = require('../');
 
 gulp.task('icon:retina', function() {
   return gulp
-    .src(['./test/sprites-retina/**/*.*'])
+    .src(['./sprites-retina/**/*.*'])
     .pipe(glue({
-      'source': 'test/sprites-retina',
+      'source': './sprites-retina',
       'output': 'build',
       'project': true,
       'retina': true,
@@ -20,9 +20,9 @@ gulp.task('icon:retina', function() {
 gulp.task('icon', ['icon:retina'], function() {
   // 针对 gule 自动压缩图片会模糊字体, 单独生成一份覆盖  force:true
   return gulp
-    .src(['./test/sprites/**/*.*'])
+    .src(['./sprites/**/*.*'])
     .pipe(glue({
-      'source': 'test/sprites',
+      'source': './sprites',
       'output': 'build',
       'project': true,
       'no-css': true,

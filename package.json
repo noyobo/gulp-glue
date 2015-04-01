@@ -15,7 +15,7 @@
     "url": "https://github.com/noyobo/gulp-glue.git"
   },
   "scripts": {
-    "test": "rm -rf build && gulp icon"
+    "test": "rm -rf test/build && cd test && gulp icon"
   },
   "keywords": [
     "glue",
