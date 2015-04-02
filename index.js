@@ -7,8 +7,16 @@ var through2 = require('through2')
 var gutil = require('gulp-util')
 var readChunk = require('read-chunk')
 var imageType = require('image-type')
+var assert = require('assert')
 
 module.exports = function(option) {
+
+  if (!option.source) {
+    throw new gutil.PluginError(pluginName, 'option source is required!')
+  }
+  if (!option.output) {
+    throw new gutil.PluginError(pluginName, 'option output is required!')
+  }
 
   return through2.obj(checkimage, function(done) {
     glueCompile(option, done)
@@ -32,7 +40,7 @@ module.exports = function(option) {
     }
     var ext = type.ext
     if (ext !== 'jpg' && ext !== 'png' && ext !== 'gif') {
-      gutil.log(type, gutil.colors.red('图片类型错误:' + file.path))
+      gutil.log(type, gutil.colors.red('imageType error:' + file.path))
       process.exit(1)
     }
     callback(null, file)

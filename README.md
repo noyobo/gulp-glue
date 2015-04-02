@@ -17,8 +17,8 @@ gulp.task('icon', function() {
   return gulp
     .src(['./sprites-retina/**/*.*'])
     .pipe(glue({
-      'source': './sprites-retina',
-      'output': './build',
+      'source': './sprites-retina',             // required
+      'output': './build',                      // required
       'project': true,
       'retina': true,
       'less': './build'
