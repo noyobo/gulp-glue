@@ -1,6 +1,6 @@
 {
   "name": "gulp-glue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "glue for gulp, Glue is a simple command line tool to generate sprites:)",
   "main": "index.js",
   "directories": {
@@ -22,15 +22,18 @@
     "glue",
     "sprites"
   ],
-  "author": "noyobo",
+  "author": {
+    "name": "noyobo",
+    "email": "noyobo@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "copy-to": "^2.0.1",
     "gulp-util": "~3.0.4",
     "image-type": "^2.0.2",
     "read-chunk": "^1.0.1",
-    "through2": "~0.6.3",
-    "which": "~1.0.9"
+    "through2": "^2.0.0",
+    "which": "^1.1.1"
   },
   "devDependencies": {
     "gulp": "~3.8.11"
