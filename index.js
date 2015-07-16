@@ -17,9 +17,9 @@ module.exports = function(option, callback) {
     throw new gutil.PluginError(pluginName, 'option output is required!')
   }
 
-  return through2.obj(checkimage, function() {
+  return through2.obj(checkimage, function(done) {
     glueCompile(option, function(){
-      callback && callback(null);
+      callback && callback(null, done);
     })
   })
 
