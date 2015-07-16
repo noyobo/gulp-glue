@@ -10,10 +10,12 @@ Please refer the [Installing Glue](http://glue.readthedocs.org/en/latest/install
 
 ## Usage
 
+### `glue(optosn, [callback])`
+
 ```js
 var glue = require('gulp-glue');
 
-gulp.task('icon', function() {
+gulp.task('icon', function(done) {
   return gulp
     .src(['./sprites-retina/**/*.*'])
     .pipe(glue({
@@ -22,6 +24,8 @@ gulp.task('icon', function() {
       'project': true,
       'retina': true,
       'less': './build'
+    }, function(){
+      done();
     }))
 })
 ```
