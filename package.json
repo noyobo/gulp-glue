@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "rm -rf test/build && cd test && gulp icon",
-    "retina": "rm -rf test/build && cd test && gulp icon:retina"
+    "retina": "rm -rf test/build && cd test && gulp icon:retina",
+    "split": "cd test && gulp split"
   },
   "keywords": [
     "glue",
@@ -31,11 +32,14 @@
     "copy-to": "^2.0.1",
     "gulp-util": "~3.0.4",
     "image-type": "^2.0.2",
+    "is-image": "~1.0.1",
     "read-chunk": "^1.0.1",
     "through2": "^2.0.0",
     "which": "^1.1.1"
   },
   "devDependencies": {
-    "gulp": "~3.8.11"
+    "gulp": "~3.8.11",
+    "gulp-rimraf": "~0.2.0",
+    "rimraf": "~2.5.0"
   }
 }

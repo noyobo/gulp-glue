@@ -8,8 +8,8 @@ var gutil = require('gulp-util')
 var readChunk = require('read-chunk')
 var imageType = require('image-type')
 
-module.exports = function(option, callback) {
-
+exports = module.exports = function(option, callback) {
+  gutil.log('glue compile start!')
   if (!option.source) {
     throw new gutil.PluginError(pluginName, 'option source is required!')
   }
@@ -19,6 +19,7 @@ module.exports = function(option, callback) {
 
   return through2.obj(checkimage, function(done) {
     glueCompile(option, function(){
+      gutil.log('glue compile end!')
       callback && callback(null, done);
     })
   })
@@ -47,3 +48,5 @@ module.exports = function(option, callback) {
     cb(null, file)
   }
 }
+
+exports.split = require('./libs/split');
