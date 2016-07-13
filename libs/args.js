@@ -46,10 +46,11 @@ module.exports.getArgs = function(obj) {
   copy(defaultArgs).to(args)
   for (var k in args) {
     var val = args[k]
-    if (val && val !== true) {
+    if (k === 'namespace' || k === 'sprite-namespace') {
+      result.push('--' + k, val)
+    } else if (val && val !== true) {
       result = result.concat(['--' + k, val])
-    }
-    if (val && val === true) {
+    } else if (val && val === true) {
       result.push('--' + k)
     }
   }
