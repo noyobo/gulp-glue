@@ -12,7 +12,9 @@ gulp.task('icon:retina', function() {
       'output': 'build',
       'project': true,
       'retina': true,
-      'less': 'build'
+      'less': 'build',
+      // 'namespace': '',
+      // 'sprite-namespace': ''
     }))
 })
 
