@@ -7,9 +7,8 @@ var through2 = require('through2')
 var gutil = require('gulp-util')
 var readChunk = require('read-chunk')
 var imageType = require('image-type')
-var assert = require('assert')
 
-module.exports = function(option) {
+module.exports = function(option, callback) {
 
   if (!option.source) {
     throw new gutil.PluginError(pluginName, 'option source is required!')
@@ -19,15 +18,17 @@ module.exports = function(option) {
   }
 
   return through2.obj(checkimage, function(done) {
-    glueCompile(option, done)
+    glueCompile(option, function(){
+      callback && callback(null, done);
+    })
   })
 
-  function checkimage(file, env, callback) {
+  function checkimage(file, env, cb) {
     if (file.isNull()) {
-      return callback(null, file)
+      return cb(null, file)
     }
     if (file.isStream()) {
-      return callback(new gutil.PluginError(pluginName, 'Streaming not supported', {
+      return cb(new gutil.PluginError(pluginName, 'Streaming not supported', {
         fileName: file.path,
         showStack: false
       }))
@@ -36,13 +37,13 @@ module.exports = function(option) {
     var buffer = readChunk.sync(file.path, 0, 12)
     var type = imageType(buffer)
     if (!type) {
-      return callback(null, file)
+      return cb(null, file)
     }
     var ext = type.ext
     if (ext !== 'jpg' && ext !== 'png' && ext !== 'gif') {
       gutil.log(type, gutil.colors.red('imageType error:' + file.path))
       process.exit(1)
     }
-    callback(null, file)
+    cb(null, file)
   }
 }
