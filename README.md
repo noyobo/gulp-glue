@@ -1,5 +1,7 @@
 # gulp-glue
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/noyobo/gulp-glue.svg)](https://greenkeeper.io/)
+
 [![npm version](http://img.shields.io/npm/v/gulp-glue.svg)](https://www.npmjs.org/package/gulp-glue) [![npm download](http://img.shields.io/npm/dm/gulp-glue.svg)](https://www.npmjs.org/package/gulp-glue) [![npm dependencise](https://david-dm.org/noyobo/gulp-glue.svg)](https://david-dm.org/noyobo/gulp-glue)
 
 ## Requirements
